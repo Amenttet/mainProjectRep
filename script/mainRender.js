@@ -30,35 +30,49 @@ function init() {
 
     scene = new THREE.Scene();
 
-    var texture	= THREE.ImageUtils.loadTexture('images/galaxy_starfield.png')
-    var material	= new THREE.MeshBasicMaterial({
-        map	: texture,
-        side	: THREE.DoubleSide
-    })
-    var geometry	= new THREE.SphereGeometry(9000, 8, 8)
-    var mesh	= new THREE.Mesh(geometry, material)
-    scene.add(mesh);
+    var starfield = (function(){
+        var texture	= THREE.ImageUtils.loadTexture('images/galaxy_starfield.png')
+        var material	= new THREE.MeshBasicMaterial({
+            map	    : texture,
+            side	: THREE.DoubleSide
+        })
+        var geometry	= new THREE.SphereGeometry(9000, 8, 8)
+        var mesh = new THREE.Mesh(geometry, material);
+        return mesh;
+        })();
+    scene.add(starfield);
 
 
-    var geometry	= new THREE.SphereGeometry(100, 32, 32)
-    var material	= new THREE.MeshPhongMaterial({
-        map	: THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
-        bumpMap	: THREE.ImageUtils.loadTexture('images/moonbump1k.jpg'),
-        bumpScale: 0.002
-    })
-    var sun	= new THREE.Mesh(geometry, material)
+    var sun = (function(){
+        var geometry	= new THREE.SphereGeometry(100, 32, 32)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/moonbump1k.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        return mesh;
+    })();
     scene.add(sun);
 
 
     var geometry1 = new THREE.SphereGeometry(10,16,16);
     var material1 =  new THREE.MeshLambertMaterial( { color:0x800080, shading: THREE.FlatShading } );
 
-    var planet1 = new THREE.Mesh (geometry1,material1);
-    planet1.position.x = 0;
-    planet1.position.y = 0;
-    planet1.position.z = 200;
-    planet1.updateMatrix();
-    scene.add( planet1 );
+    var mercury = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/mercurymap.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/mercurybump.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 200;
+        return mesh;
+    })();
+    scene.add( mercury );
 
     var planet2 = new THREE.Mesh (geometry1,material1);
     planet2.position.x = 0;
