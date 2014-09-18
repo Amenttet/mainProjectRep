@@ -86,7 +86,7 @@ function init() {
     scene.add( venus );
 
     var earth = (function(){
-        var geometry	= new THREE.SphereGeometry(100, 16, 16)
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/earthmap1k.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/earthbump1k.jpg'),
