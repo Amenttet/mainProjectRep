@@ -104,47 +104,95 @@ function init() {
     })();
     scene.add( earth );
 
-    var planet4 = new THREE.Mesh (geometry1,material1);
-    planet4.position.x = 0;
-    planet4.position.y = 0;
-    planet4.position.z = 500;
-    planet4.updateMatrix();
-    scene.add( planet4 );
+    var mars = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/marsmap1k.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/marsbump1k.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 500;
+        return mesh;
+    })();
+    scene.add( mars );
 
-    var planet5 = new THREE.Mesh (geometry1,material1);
-    planet5.position.x = 0;
-    planet5.position.y = 00;
-    planet5.position.z = 600;
-    planet5.updateMatrix();
-    scene.add( planet5 );
+    var jupiter = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/jupitermap.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/jupitermap.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 600;
+        return mesh;
+    })();
+    scene.add( jupiter );
 
-    var planet6 = new THREE.Mesh (geometry1,material1);
-    planet6.position.x = 0;
-    planet6.position.y = 0;
-    planet6.position.z = 700;
-    planet6.updateMatrix();
-    scene.add( planet6 );
+    var saturn = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/saturnmap.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/saturnmap.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 700;
+        return mesh;
+    })();
+    scene.add( saturn );
 
-    var planet7 = new THREE.Mesh (geometry1,material1);
-    planet7.position.x = 0;
-    planet7.position.y = 0;
-    planet7.position.z = 800;
-    planet7.updateMatrix();
-    scene.add( planet7 );
+    var uranus = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/uranusmap.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/uranusmap.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 800;
+        return mesh;
+    })();
+    scene.add( uranus );
 
-    var planet8 = new THREE.Mesh (geometry1,material1);
-    planet8.position.x = 0;
-    planet8.position.y = 0;
-    planet8.position.z = 900;
-    planet8.updateMatrix();
-    scene.add( planet8 );
+    var neptune = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/neptunemap.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/neptunemap.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 900;
+        return mesh;
+    })();
+    scene.add( neptune );
 
-    var planet9 = new THREE.Mesh (geometry1,material1);
-    planet9.position.x = 0;
-    planet9.position.y = 0;
-    planet9.position.z = 1000;
-    planet9.updateMatrix();
-    scene.add( planet9 );
+    var pluton = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/plutomap1k.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/plutobump1k.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 1000;
+        return mesh;
+    })();
+    scene.add( pluton );
 
 
     // lights
@@ -202,13 +250,13 @@ function render()
 {
 
     var time = Date.now() * 0.0005;
-
+/*
     for ( var i = 2, l = 11; i < l; i ++ ) {
 
         scene.children[ i ].position.x = Math.sin( time * 0.5 * i ) * i * 150;
         scene.children[ i ].position.z = Math.cos( time * 0.5 * i) * i * 150;
 
     }
-
+*/
     renderer.render( scene, camera );
 }
