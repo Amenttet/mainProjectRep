@@ -47,7 +47,7 @@ function init() {
         var geometry	= new THREE.SphereGeometry(100, 32, 32)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
-            bumpMap	: THREE.ImageUtils.loadTexture('images/moonbump1k.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
             bumpScale: 0.002
         })
         var mesh = new THREE.Mesh(geometry, material);
@@ -74,19 +74,35 @@ function init() {
     })();
     scene.add( mercury );
 
-    var planet2 = new THREE.Mesh (geometry1,material1);
-    planet2.position.x = 0;
-    planet2.position.y = 0;
-    planet2.position.z = 300;
-    planet2.updateMatrix();
-    scene.add( planet2 );
+    var venus = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/venusmap.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/venusbump.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 300;
+        return mesh;
+    })();
+    scene.add( venus );
 
-    var planet3 = new THREE.Mesh (geometry1,material1);
-    planet3.position.x = 0;
-    planet3.position.y = 0;
-    planet3.position.z = 400;
-    planet3.updateMatrix();
-    scene.add( planet3 );
+    var earth = (function(){
+        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var material	= new THREE.MeshPhongMaterial({
+            map	: THREE.ImageUtils.loadTexture('images/earthmap1k.jpg'),
+            bumpMap	: THREE.ImageUtils.loadTexture('images/earthbump1k.jpg'),
+            bumpScale: 0.002
+        })
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.position.x = 0;
+        mesh.position.y = 0;
+        mesh.position.z = 400;
+        return mesh;
+    })();
+    scene.add( earth );
 
     var planet4 = new THREE.Mesh (geometry1,material1);
     planet4.position.x = 0;
