@@ -44,7 +44,7 @@ function init() {
 
 
     var sun = (function(){
-        var geometry	= new THREE.SphereGeometry(100, 32, 32)
+        var geometry	= new THREE.SphereGeometry(1090, 32, 32)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/sunmap.jpg'),
@@ -55,12 +55,8 @@ function init() {
     })();
     scene.add(sun);
 
-
-    var geometry1 = new THREE.SphereGeometry(10,16,16);
-    var material1 =  new THREE.MeshLambertMaterial( { color:0x800080, shading: THREE.FlatShading } );
-
     var mercury = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var geometry	= new THREE.SphereGeometry(3.8, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/mercurymap.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/mercurybump.jpg'),
@@ -69,13 +65,13 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 200;
+        mesh.position.z = 1090+38;
         return mesh;
     })();
     scene.add( mercury );
 
     var venus = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var geometry	= new THREE.SphereGeometry(9.5, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/venusmap.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/venusbump.jpg'),
@@ -84,7 +80,7 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 300;
+        mesh.position.z = 1090+72;
         return mesh;
     })();
     scene.add( venus );
@@ -99,13 +95,13 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 400;
+        mesh.position.z = 1090+100;
         return mesh;
     })();
     scene.add( earth );
 
     var mars = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var geometry	= new THREE.SphereGeometry(5.3, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/marsmap1k.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/marsbump1k.jpg'),
@@ -114,13 +110,13 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 500;
+        mesh.position.z = 1090+152;
         return mesh;
     })();
     scene.add( mars );
 
     var jupiter = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var geometry	= new THREE.SphereGeometry(112, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/jupitermap.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/jupitermap.jpg'),
@@ -129,13 +125,13 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 600;
+        mesh.position.z = 1090+520;
         return mesh;
     })();
     scene.add( jupiter );
 
     var saturn = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var geometry	= new THREE.SphereGeometry(94, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/saturnmap.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/saturnmap.jpg'),
@@ -144,13 +140,13 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 700;
+        mesh.position.z = 1090+954;
         return mesh;
     })();
     scene.add( saturn );
 
     var uranus = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var geometry	= new THREE.SphereGeometry(39, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/uranusmap.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/uranusmap.jpg'),
@@ -159,13 +155,13 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 800;
+        mesh.position.z = 1090+1922;
         return mesh;
     })();
     scene.add( uranus );
 
     var neptune = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var geometry	= new THREE.SphereGeometry(38, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/neptunemap.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/neptunemap.jpg'),
@@ -174,25 +170,10 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 900;
+        mesh.position.z = 1090+3000;
         return mesh;
     })();
     scene.add( neptune );
-
-    var pluton = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
-        var material	= new THREE.MeshPhongMaterial({
-            map	: THREE.ImageUtils.loadTexture('images/plutomap1k.jpg'),
-            bumpMap	: THREE.ImageUtils.loadTexture('images/plutobump1k.jpg'),
-            bumpScale: 0.002
-        })
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.position.x = 0;
-        mesh.position.y = 0;
-        mesh.position.z = 1000;
-        return mesh;
-    })();
-    scene.add( pluton );
 
 
     // lights
@@ -251,7 +232,7 @@ function render()
 
     var time = Date.now() * 0.0005;
 /*
-    for ( var i = 2, l = 11; i < l; i ++ ) {
+    for ( var i = 2, l = 10; i < l; i ++ ) {
 
         scene.children[ i ].position.x = Math.sin( time * 0.5 * i ) * i * 150;
         scene.children[ i ].position.z = Math.cos( time * 0.5 * i) * i * 150;
