@@ -4,28 +4,19 @@
     <meta charset="UTF-8">
     <title></title>
     <link rel="stylesheet" href="main.css">
-    <script src="three.min.js"></script>
-    <script src="dojo.js"></script>
-    <script src="jquery-1.11.1.min.js"></script>
-    <script src="TrackballControls.js"></script>
-    <script src="detector.js"></script>
-    <script src="stats.js"></script>
-    <script>
-        (function() {
-            var cx = '123:456'; // Insert your own Custom Search engine ID here
-            var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
-            gcse.src = (document.location.protocol == 'https' ? 'https:' : 'http:') +
-                    '//www.google.com/cse/cse.js?cx=' + cx;
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
-        })();
-    </script>
-
+    <script src="lib/three.min.js"></script>
+    <script src="lib/dojo.js"></script>
+    <script src="lib/jquery-1.11.1.min.js"></script>
+    <script src="lib/TrackballControls.js"></script>
+    <script src="lib/detector.js"></script>
+    <script src="lib/package.require.js"></script>
+    <script src="lib/threex.planets.js"></script>
+    <script src="lib/threex.atmospheredatgui.js"></script>
+    <script src="lib/threex.atmospherematerial.js"></script>
 
 </head>
 <body onmousemove="mousemove(event)">
-<!-- Place this tag where you want both of the search box and the search results to render -->
-<gcse:search>jj</gcse:search>
     <div id="container"></div>
-    <script src="mainRender.js" ></script>
+    <script src="script/mainRender.js" ></script>
 </body>
 </html>
