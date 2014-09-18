@@ -8,12 +8,12 @@ animate();
 function init() {
 
     camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 20000 );
-    camera.position.z = 500;
+    camera.position.z = 1090+500;
 
     controls = new THREE.TrackballControls( camera );
 
     controls.rotateSpeed = 1.0;
-    controls.zoomSpeed = 1.2;
+    controls.zoomSpeed = 1.0;
     controls.panSpeed = 0.0;
 
     controls.noZoom = false;
@@ -65,7 +65,7 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 1090+38;
+        mesh.position.z = 1128;
         return mesh;
     })();
     scene.add( mercury );
@@ -80,13 +80,13 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 1090+72;
+        mesh.position.z = 1162;
         return mesh;
     })();
     scene.add( venus );
 
     var earth = (function(){
-        var geometry	= new THREE.SphereGeometry(10, 16, 16)
+        var geometry	= new THREE.SphereGeometry(100, 16, 16)
         var material	= new THREE.MeshPhongMaterial({
             map	: THREE.ImageUtils.loadTexture('images/earthmap1k.jpg'),
             bumpMap	: THREE.ImageUtils.loadTexture('images/earthbump1k.jpg'),
@@ -95,7 +95,7 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 1090+100;
+        mesh.position.z = 1190;
         return mesh;
     })();
     scene.add( earth );
@@ -110,7 +110,7 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 1090+152;
+        mesh.position.z = 1242;
         return mesh;
     })();
     scene.add( mars );
@@ -125,7 +125,7 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 1090+520;
+        mesh.position.z = 1610;
         return mesh;
     })();
     scene.add( jupiter );
@@ -140,7 +140,7 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 1090+954;
+        mesh.position.z = 2044;
         return mesh;
     })();
     scene.add( saturn );
@@ -155,7 +155,7 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 1090+1922;
+        mesh.position.z = 3012;
         return mesh;
     })();
     scene.add( uranus );
@@ -170,7 +170,7 @@ function init() {
         var mesh = new THREE.Mesh(geometry, material);
         mesh.position.x = 0;
         mesh.position.y = 0;
-        mesh.position.z = 1090+3000;
+        mesh.position.z = 4090;
         return mesh;
     })();
     scene.add( neptune );
@@ -230,7 +230,7 @@ function animate()
 function render()
 {
 
-    var time = Date.now() * 0.0005;
+    var time = Date.now() ;
 /*
     for ( var i = 2, l = 10; i < l; i ++ ) {
 
@@ -239,5 +239,21 @@ function render()
 
     }
 */
+    scene.children[ 2 ].position.x = Math.sin( time * 0.00016) * 1128;
+    scene.children[ 2 ].position.z = Math.cos( time * 0.00016) * 1128;
+    scene.children[ 3 ].position.x = Math.sin( time * 0.00065) * 1162;
+    scene.children[ 3 ].position.z = Math.cos( time * 0.00065) * 1162;
+    scene.children[ 4 ].position.x = Math.sin( time * 0.0004) * 1190;
+    scene.children[ 4 ].position.z = Math.cos( time * 0.0004) * 1190;
+    scene.children[ 5 ].position.x = Math.sin( time * 0.0002127) * 1242;
+    scene.children[ 5 ].position.z = Math.cos( time * 0.0002127) * 1242;
+    scene.children[ 6 ].position.x = Math.sin( time * 0.0000337) * 1610;
+    scene.children[ 6 ].position.z = Math.cos( time * 0.0000337) * 1610;
+    scene.children[ 7 ].position.x = Math.sin( time * 0.0000135) * 2044;
+    scene.children[ 7 ].position.z = Math.cos( time * 0.0000135) * 2044;
+    scene.children[ 8 ].position.x = Math.sin( time * 0.0000047) * 3012;
+    scene.children[ 8 ].position.z = Math.cos( time * 0.0000047) * 3012;
+    scene.children[ 9 ].position.x = Math.sin( time * 0.0000002) * 4090;
+    scene.children[ 9 ].position.z = Math.cos( time * 0.0000002) * 4090;
     renderer.render( scene, camera );
 }
